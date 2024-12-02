@@ -1,4 +1,4 @@
-# shoe_store Template
+# hoopify website !!! 
 <p>
 This is an eccommerce website template using html, css and js. It's kinda a fork of Apurba Kumar Pramanik's template, check out him out here (he's very talented):
 </p>
