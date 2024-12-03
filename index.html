@@ -1,186 +1,189 @@
 <!doctype html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hoopify</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
 
-<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Hoopify</title>
-	<link rel="stylesheet" href="style.css" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" />
-	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
-		rel="stylesheet" />
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-</head>
+  <body>
+    <!-- Header Section -->
+    <div class="header">
+      <div class="container">
+        <div class="navbar">
+          <div class="logo">
+            <a href="index.html"><img src="images/logo.png" width="125px" /></a>
+          </div>
+          <nav>
+            <ul id="MenuItems">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="products.html">Products</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+          <a href="cart.html">
+            <img src="images/cart.png" width="30px" height="30px" />
+            <span id="cartCount" class="cart-count">0</span>
+          </a>
+        </div>
+        <div class="row">
+          <div class="col-2">
+            <h1>High Quality <br />Low Price</h1>
+            <p>Discover our expansive range in one click.</p>
+            <a href="products.html" class="btn">Explore Now &#8594;</a>
+          </div>
+          <div class="col-2">
+            <img src="images/image1.png" />
+          </div>
+        </div>
+      </div>
+    </div>
 
-<body>
-	<!-- Header Section -->
-	<div class="header">
-		<div class="container">
-			<div class="navbar">
-				<div class="logo">
-					<a href="index.html"><img src="images/logo.png" width="125px" /></a>
-				</div>
-				<nav>
-					<ul id="MenuItems">
-						<li><a href="index.html">Home</a></li>
-						<li><a href="products.html">Products</a></li>
-						<li><a href="about.html">About</a></li>
-						<li><a href="contact.html">Contact</a></li>
-						<li><a href="account.html">Account</a></li>
-					</ul>
-				</nav>
-				<a href="cart.html">
-					<img src="images/cart.png" width="30px" height="30px" />
-					<span id="cartCount" class="cart-count">0</span>
-				</a>
-			</div>
-			<div class="row">
-				<div class="col-2">
-					<h1>High Quality <br />Low Price</h1>
-					<p>Discover our expansive range in one click.</p>
-					<a href="products.html" class="btn">Explore Now &#8594;</a>
-				</div>
-				<div class="col-2">
-					<img src="images/image1.png" />
-				</div>
-			</div>
-		</div>
-	</div>
+    <!-- Featured Products Section -->
+    <div class="small-container">
+      <h2 class="title">Featured Products</h2>
+      <div class="row featured-products">
+        <!-- Featured products will be dynamically added here -->
+      </div>
 
-	<!-- Featured Products Section -->
-	<div class="small-container">
-		<h2 class="title">Featured Products</h2>
-		<div class="row featured-products">
-			<!-- Featured products will be dynamically added here -->
-		</div>
+      <!-- Latest Products Section -->
+      <h2 class="title">Latest Products</h2>
+      <div class="row latest-products">
+        <!-- Latest products will be dynamically added here -->
+      </div>
+    </div>
 
-		<!-- Latest Products Section -->
-		<h2 class="title">Latest Products</h2>
-		<div class="row latest-products">
-			<!-- Latest products will be dynamically added here -->
-		</div>
-	</div>
+    <!-- Offer Section -->
+    <div class="offer">
+      <div class="small-container">
+        <div class="row">
+          <div class="col-2">
+            <img src="images/image1.png" class="offer-img" />
+          </div>
+          <div class="col-2">
+            <p>Exclusively Available on RedStore</p>
+            <h1>Sports Shoes</h1>
+            <small>
+              Buy latest collections of sports shoes online on Redstore at best
+              prices from top brands such as Adidas, Nike, Puma, Asics, and
+              Sparx at your leisure at best prices. </small
+            ><br />
+            <a href="products.html" class="btn">Buy Now &#8594;</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
-	<!-- Offer Section -->
-	<div class="offer">
-		<div class="small-container">
-			<div class="row">
-				<div class="col-2">
-					<img src="images/image1.png" class="offer-img" />
-				</div>
-				<div class="col-2">
-					<p>Exclusively Available on RedStore</p>
-					<h1>Sports Shoes</h1>
-					<small>
-						Buy latest collections of sports shoes online on Redstore at best
-						prices from top brands such as Adidas, Nike, Puma, Asics, and
-						Sparx at your leisure at best prices. </small><br />
-					<a href="products.html" class="btn">Buy Now &#8594;</a>
-				</div>
-			</div>
-		</div>
-	</div>
+    <!-- Testimonial Section -->
+    <div class="testimonial">
+      <div class="small-container">
+        <div class="row">
+          <div class="col-3">
+            <i class="fa fa-quote-left"></i>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s.
+            </p>
+            <div class="rating">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-o"></i>
+            </div>
+            <img src="images/user-1.png" />
+            <h3>Sean Parker</h3>
+          </div>
+          <div class="col-3">
+            <i class="fa fa-quote-left"></i>
+            <p>
+              It is a long established fact that a reader will be distracted by
+              the readable content of a page when looking at its layout.
+            </p>
+            <div class="rating">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-o"></i>
+            </div>
+            <img src="images/user-2.png" />
+            <h3>Mike Smith</h3>
+          </div>
+          <div class="col-3">
+            <i class="fa fa-quote-left"></i>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s.
+            </p>
+            <div class="rating">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-o"></i>
+            </div>
+            <img src="images/user-3.png" />
+            <h3>Mabel Joe</h3>
+          </div>
+        </div>
+      </div>
+    </div>
 
-	<!-- Testimonial Section -->
-	<div class="testimonial">
-		<div class="small-container">
-			<div class="row">
-				<div class="col-3">
-					<i class="fa fa-quote-left"></i>
-					<p>
-						Lorem Ipsum is simply dummy text of the printing and typesetting
-						industry. Lorem Ipsum has been the industry's standard dummy text
-						ever since the 1500s.
-					</p>
-					<div class="rating">
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star-o"></i>
-					</div>
-					<img src="images/user-1.png" />
-					<h3>Sean Parker</h3>
-				</div>
-				<div class="col-3">
-					<i class="fa fa-quote-left"></i>
-					<p>
-						It is a long established fact that a reader will be distracted by
-						the readable content of a page when looking at its layout.
-					</p>
-					<div class="rating">
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star-o"></i>
-					</div>
-					<img src="images/user-2.png" />
-					<h3>Mike Smith</h3>
-				</div>
-				<div class="col-3">
-					<i class="fa fa-quote-left"></i>
-					<p>
-						Lorem Ipsum is simply dummy text of the printing and typesetting
-						industry. Lorem Ipsum has been the industry's standard dummy text
-						ever since the 1500s.
-					</p>
-					<div class="rating">
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star-o"></i>
-					</div>
-					<img src="images/user-3.png" />
-					<h3>Mabel Joe</h3>
-				</div>
-			</div>
-		</div>
-	</div>
+    <!-- Footer Section -->
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="footer-col-1">
+            <h3>Download Our App</h3>
+            <p>Coming Soon for Android and iOS</p>
+            <div class="app-logo">
+              <img src="images/play-store.png" alt="" />
+              <img src="images/app-store.png" alt="" />
+            </div>
+          </div>
+          <div class="footer-col-2">
+            <img src="images/logo-white.png" width="25px" />
+            <p>
+              Our purpose is to provide high-quality and accessible sport and
+              casual shoes to anyone.
+            </p>
+          </div>
+          <div class="footer-col-3">
+            <h3>Links</h3>
+            <ul>
+              <li>Return Policy</li>
+              <li>Contact Us</li>
+            </ul>
+            <h3>Follow Us</h3>
+            <ul>
+              <li>Tiktok</li>
+              <li>Instagram</li>
+            </ul>
+          </div>
+        </div>
 
-	<!-- Footer Section -->
-	<div class="footer">
-		<div class="container">
-			<div class="row">
-				<div class="footer-col-1">
-					<h3>Download Our App</h3>
-					<p>Coming Soon for Android and iOS</p>
-					<div class="app-logo">
-						<img src="images/play-store.png" alt="" />
-						<img src="images/app-store.png" alt="" />
-					</div>
-				</div>
-				<div class="footer-col-2">
-					<img src="images/logo-white.png" width="25px" />
-					<p>
-						Our purpose is to provide high-quality and accessible sport and
-						casual shoes to anyone.
-					</p>
-				</div>
-				<div class="footer-col-3">
-					<h3>Links</h3>
-					<ul>
-						<li>Return Policy</li>
-						<li>Contact Us</li>
-					</ul>
-					<h3>Follow Us</h3>
-					<ul>
-						<li>Tiktok</li>
-						<li>Instagram</li>
-					</ul>
-				</div>
-			</div>
+        <hr />
+        <!--horizontal line-->
+        <p class="copyright">Copyright 2024 - Hoopify</p>
+      </div>
+    </div>
+    <!-- Script -->
+    <script src="index.js" type="module"></script>
 
-			<hr />
-			<!--horizontal line-->
-			<p class="copyright">Copyright 2024 - Hoopify</p>
-		</div>
-	</div>
-	<!-- Script -->
-	<script src="index.js" type="module"></script>
-
-	<script src="cart.js" type="module"></script>
-</body>
-
+    <script src="cart.js" type="module"></script>
+  </body>
 </html>
