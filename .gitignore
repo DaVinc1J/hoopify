@@ -1,0 +1,10 @@
+.env
+
+#firebase account keys
+serviceAccountKey.json
+
+#no log files
+*.log
+
+#dont want my mac stuff there
+.DS_Store
