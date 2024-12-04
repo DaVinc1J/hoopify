@@ -85,7 +85,7 @@
       import { submitFormData } from "./firebase.js";
 
       document
-        .querySelector("form")
+        .getElementById("contactForm")
         .addEventListener("submit", async (event) => {
           event.preventDefault();
 
@@ -98,6 +98,7 @@
           };
 
           await submitFormData(formData);
+
           event.target.reset();
         });
     </script>
