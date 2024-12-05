@@ -47,7 +47,11 @@
     <div class="contact-page">
       <div class="container">
         <div class="contact-container">
-          <form>
+          <form
+            target="_blank"
+            action="https://formsubmit.co/tristanlowe48@gmail.com"
+            method="POST"
+          >
             <h1>Get in contact with us!</h1>
             <div class="input-row">
               <input
@@ -80,29 +84,6 @@
         </div>
       </div>
     </div>
-
-    <script type="module">
-      import { submitFormData } from "./firebase.js";
-
-      document
-        .getElementById("contactForm")
-        .addEventListener("submit", async (event) => {
-          event.preventDefault();
-
-          const formData = {
-            firstName: event.target.firstName.value,
-            lastName: event.target.lastName.value,
-            email: event.target.email.value,
-            message: event.target.message.value,
-            timestamp: new Date().toISOString(),
-          };
-
-          await submitFormData(formData);
-
-          event.target.reset();
-        });
-    </script>
-
     <!----------------------------------footer------------------------------------->
     <div class="footer">
       <div class="container">
