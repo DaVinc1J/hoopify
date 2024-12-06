@@ -1,4 +1,3 @@
-// cart-page.js
 import {
   getCart,
   saveCart,
@@ -11,19 +10,19 @@ function displayCartItems() {
   const cart = getCart();
   const cartItemsContainer = document.getElementById("cartItems");
   const subtotalEl = document.getElementById("subtotal");
-  const taxEl = document.getElementById("tax");
+  const affiliateEl = document.getElementById("affiliate");
   const totalEl = document.getElementById("total");
 
   if (cart.length === 0) {
     cartItemsContainer.innerHTML = "<p>Your cart is empty.</p>";
     subtotalEl.textContent = "$0.00";
-    taxEl.textContent = "$0.00";
+    affiliateEl.textContent = "$0.00";
     totalEl.textContent = "$0.00";
     return;
   }
 
   let subtotal = 0;
-  cartItemsContainer.innerHTML = ""; // Clear existing items
+  cartItemsContainer.innerHTML = "";
 
   cart.forEach((item) => {
     const itemTotal = item.price * item.quantity;
@@ -51,21 +50,18 @@ function displayCartItems() {
     cartItemsContainer.appendChild(cartItem);
   });
 
-  // Calculate tax and total
-  const taxRate = 0.1; // 10% tax
-  const tax = subtotal * taxRate;
-  const total = subtotal + tax;
+  const affiliateRate = 0.05;
+  const affiliateDiscount = subtotal * affiliateRate;
+  const total = subtotal - affiliateDiscount;
 
   subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
-  taxEl.textContent = `$${tax.toFixed(2)}`;
+  affiliateEl.textContent = `$${affiliateDiscount.toFixed(2)}`;
   totalEl.textContent = `$${total.toFixed(2)}`;
 
-  // Add event listeners for quantity changes and remove buttons
   setupCartItemEventListeners();
 }
 
 function setupCartItemEventListeners() {
-  // Handle quantity changes
   const quantityInputs = document.querySelectorAll(
     '.quantity input[type="number"]',
   );
@@ -94,7 +90,6 @@ function setupCartItemEventListeners() {
     });
   });
 
-  // Handle remove buttons
   const removeButtons = document.querySelectorAll(".remove-btn");
   removeButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
@@ -113,9 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const checkoutBtn = document.getElementById("checkoutBtn");
   checkoutBtn.addEventListener("click", () => {
-    // Implement checkout functionality
     alert("Proceeding to checkout...");
-    // For example, you might clear the cart after checkout
     clearCart();
     displayCartItems();
   });

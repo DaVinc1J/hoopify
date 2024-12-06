@@ -1,120 +1,108 @@
 <!doctype html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hoopify</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
 
-<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Hoopify</title>
-	<link rel="stylesheet" href="style.css" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" />
-	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
-		rel="stylesheet" />
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-</head>
+  <body>
+    <!-- Navbar -->
+    <div id="header"></div>
 
-<body>
-	<!-- Navbar -->
-	<div class="header">
-		<div class="container">
-			<div class="navbar">
-				<div class="logo">
-					<a href="index.html"><img src="images/logo.png" width="125px" /></a>
-				</div>
-				<nav>
-					<ul id="MenuItems">
-						<li><a href="index.html">Home</a></li>
-						<li><a href="products.html">Products</a></li>
-						<li><a href="contact.html">Contact</a></li>
-						<li><a href="account.html">Account</a></li>
-					</ul>
-				</nav>
-				<a href="cart.html" id="cartLink">
-					<img src="images/cart.png" width="30px" height="30px" />
-					<span id="cartCount" class="cart-count">0</span>
-				</a>
-			</div>
-		</div>
-	</div>
+    <!-- Cart Items Details -->
+    <div class="small-container cart-page">
+      <h2>Your Cart</h2>
+      <div id="cartItems">
+        <div class="cart-info">
+          <img src="${item.img}" alt="${item.name}" />
+          <div>
+            <p>${item.name}</p>
+            <p>Size: ${item.size}</p>
+            <small>Price: $${item.price.toFixed(2)}</small><br />
+            <a
+              href="#"
+              class="remove-btn"
+              data-id="${item.id}"
+              data-size="${item.size}"
+              >Remove</a
+            >
+          </div>
+        </div>
+        <div class="quantity">
+          <input
+            type="number"
+            min="1"
+            value="${item.quantity}"
+            data-id="${item.id}"
+            data-size="${item.size}"
+          />
+        </div>
+        <div class="subtotal">$${itemTotal.toFixed(2)}</div>
+      </div>
 
-	<!-- Cart Items Details -->
-	<div class="small-container cart-page">
-		<h2>Your Cart</h2>
-		<div id="cartItems">
-			<!-- Cart items will be dynamically inserted here -->
-		</div>
+      <div class="total-price">
+        <table>
+          <tr>
+            <td>Subtotal</td>
+            <td id="subtotal">$0.00</td>
+          </tr>
+          <tr>
+            <td>Affiliate Discount</td>
+            <td id="affiliate">$0.00</td>
+          </tr>
+          <tr>
+            <td>Total</td>
+            <td id="total">$0.00</td>
+          </tr>
+        </table>
+        <button class="btn" id="checkoutBtn">Proceed to Checkout</button>
+      </div>
+    </div>
 
-		<div class="total-price">
-			<table>
-				<tr>
-					<td>Subtotal</td>
-					<td id="subtotal">$0.00</td>
-				</tr>
-				<tr>
-					<td>Tax</td>
-					<td id="tax">$0.00</td>
-				</tr>
-				<tr>
-					<td>Total</td>
-					<td id="total">$0.00</td>
-				</tr>
-			</table>
-			<button class="btn" id="checkoutBtn">Proceed to Checkout</button>
-		</div>
-	</div>
+    <!-- Footer -->
+    <div id="footer"></div>
 
-	<!-- Footer -->
-	<div class="footer">
-		<div class="container">
-			<div class="row">
-				<!-- Footer columns -->
-				<div class="footer-col-1">
-					<h3>Download Our App</h3>
-					<p>Coming Soon for Android and iOS</p>
-					<div class="app-logo">
-						<img src="images/play-store.png" alt="" />
-						<img src="images/app-store.png" alt="" />
-					</div>
-				</div>
-				<div class="footer-col-2">
-					<img src="images/logo-white.png" width="25px" />
-					<p>
-						Our purpose is to provide high-quality and accessible sport and
-						casual shoes to anyone.
-					</p>
-				</div>
-				<div class="footer-col-3">
-					<h3>Links</h3>
-					<ul>
-						<li>Return Policy</li>
-						<li>Contact Us</li>
-					</ul>
-					<h3>Follow Us</h3>
-					<ul>
-						<li>TikTok</li>
-						<li>Instagram</li>
-					</ul>
-				</div>
-			</div>
+    <!--load header and footer-->
+    <script>
+      async function loadContent() {
+        const header = await fetch("header.html").then((response) =>
+          response.text(),
+        );
+        document.getElementById("header").innerHTML = header;
 
-			<hr />
-			<p class="copyright">Copyright 2024 - Hoopify</p>
-		</div>
-	</div>
+        const footer = await fetch("footer.html").then((response) =>
+          response.text(),
+        );
+        document.getElementById("footer").innerHTML = footer;
+      }
 
-	<!-- Include the JavaScript files -->
-	<script type="module" src="cart-page.js"></script>
-	<script>
-		var MenuItems = document.getElementById("MenuItems");
+      loadContent();
+    </script>
 
-		MenuItems.style.maxHeight = "0px";
-		function menutoggle() {
-			if (MenuItems.style.maxHeight == "0px") {
-				MenuItems.style.maxHeight = "200px";
-			} else {
-				MenuItems.style.maxHeight = "0px";
-			}
-		}
-	</script>
-</body>
+    <!-- Include the JavaScript files -->
+    <script type="module" src="cart-page.js"></script>
+    <script>
+      var MenuItems = document.getElementById("MenuItems");
 
+      MenuItems.style.maxHeight = "0px";
+      function menutoggle() {
+        if (MenuItems.style.maxHeight == "0px") {
+          MenuItems.style.maxHeight = "200px";
+        } else {
+          MenuItems.style.maxHeight = "0px";
+        }
+      }
+    </script>
+  </body>
 </html>
