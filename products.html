@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>All Products - Redstore</title>
+    <title>Hoopify - Products</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
@@ -42,17 +42,19 @@
     <div id="footer"></div>
 
     <!--load and update header and footer-->
-    <script>
-      async function loadContent() {
-        const header = await fetch("header.html").then((response) =>
-          response.text(),
-        );
-        document.getElementById("header").innerHTML = header;
+    <script type="module">
+      import { initializeCart } from "./cart.js";
 
-        const footer = await fetch("footer.html").then((response) =>
-          response.text(),
-        );
-        document.getElementById("footer").innerHTML = footer;
+      async function loadContent() {
+        const headerResponse = await fetch("header.html");
+        const headerHtml = await headerResponse.text();
+        document.getElementById("header").innerHTML = headerHtml;
+
+        const footerResponse = await fetch("footer.html");
+        const footerHtml = await footerResponse.text();
+        document.getElementById("footer").innerHTML = footerHtml;
+
+        initializeCart();
       }
 
       loadContent();

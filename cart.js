@@ -52,4 +52,3 @@ export function initializeCart() {
 document.addEventListener("DOMContentLoaded", () => {
 	updateCartCount();
 });
-<script type="module" src="cart-page.js"></script>;
