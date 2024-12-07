@@ -1,89 +1,75 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width-device-width, initial-scale=1.0" />
-    <title>Hoopify - Contact</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-  </head>
 
-  <body>
-    <!--header-->
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width-device-width, initial-scale=1.0" />
+	<title>Hoopify - Contact</title>
+	<link rel="stylesheet" href="style.css" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" />
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
+		rel="stylesheet" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
 
-    <div id="header"></div>
+<body>
+	<!--header-->
+	<div id="header"></div>
 
-    <!--contact page-->
+	<!--contact page-->
+	<div class="contact-page">
+		<div class="container">
+			<div class="contact-container">
+				<form target="_blank" action="https://formsubmit.co/hoopifystore@outlook.com" method="POST">
+					<h1>Get in contact with us!</h1>
+					<div class="input-row">
+						<input type="text" name="firstName" placeholder="First Name" required />
+						<input type="text" name="lastName" placeholder="Last Name" required />
+					</div>
+					<input type="email" name="email" placeholder="Email Address" required />
+					<textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+					<button type="submit" class="btn">Submit</button>
+				</form>
+			</div>
+		</div>
+	</div>
 
-    <div class="contact-page">
-      <div class="container">
-        <div class="contact-container">
-          <form
-            target="_blank"
-            action="https://formsubmit.co/hoopifystore@outlook.com"
-            method="POST"
-          >
-            <h1>Get in contact with us!</h1>
-            <div class="input-row">
-              <input
-                type="text"
-                name="firstName"
-                placeholder="First Name"
-                required
-              />
-              <input
-                type="text"
-                name="lastName"
-                placeholder="Last Name"
-                required
-              />
-            </div>
-            <input
-              type="email"
-              name="email"
-              placeholder="Email Address"
-              required
-            />
-            <textarea
-              name="message"
-              placeholder="Your Message"
-              rows="5"
-              required
-            ></textarea>
-            <button type="submit" class="btn">Submit</button>
-          </form>
-        </div>
-      </div>
-    </div>
+	<!--footer-->
+	<div id="footer"></div>
 
-    <!--footer-->
-    <div id="footer"></div>
+	<!--load header and footer-->
+	<script type="module">
+		import {initializeCart} from "./cart.js";
 
-    <!--load header and footer-->
-    <script type="module">
-      import { initializeCart } from "./cart.js";
+		async function loadContent() {
+			const headerResponse = await fetch("header.html");
+			const headerHtml = await headerResponse.text();
+			document.getElementById("header").innerHTML = headerHtml;
 
-      async function loadContent() {
-        const headerResponse = await fetch("header.html");
-        const headerHtml = await headerResponse.text();
-        document.getElementById("header").innerHTML = headerHtml;
+			const footerResponse = await fetch("footer.html");
+			const footerHtml = await footerResponse.text();
+			document.getElementById("footer").innerHTML = footerHtml;
 
-        const footerResponse = await fetch("footer.html");
-        const footerHtml = await footerResponse.text();
-        document.getElementById("footer").innerHTML = footerHtml;
+			const menuToggle = document.getElementById("menu-toggle");
+			const nav = document.querySelector("nav");
 
-        initializeCart();
-      }
+			if (menuToggle && nav) {
+				menuToggle.addEventListener("click", () => {
+					if (nav.style.display === "block") {
+						nav.style.display = "none";
+					} else {
+						nav.style.display = "block";
+					}
+				});
+			}
 
-      loadContent();
-    </script>
-  </body>
+			initializeCart();
+		}
+
+		loadContent();
+	</script>
+
+	<script type="module" src="cart-page.js"></script>
+</body>
+
 </html>

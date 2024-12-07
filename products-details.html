@@ -1,88 +1,100 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width-device-width, initial-scale=1.0" />
-    <title>Hoopify - Product Details</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-  </head>
 
-  <body>
-    <!--header-->
-    <div id="header"></div>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width-device-width, initial-scale=1.0" />
+	<title>Hoopify - Product Details</title>
+	<link rel="stylesheet" href="style.css" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" />
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
+		rel="stylesheet" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
 
-    <!--single product-->
-    <div class="small-container single-product">
-      <div class="row">
-        <div class="col-2">
-          <img src="" width="100%" id="productImg" />
+<body>
+	<!--header-->
+	<div id="header"></div>
 
-          <div class="small-img-row" id="smallImgRow"></div>
-        </div>
+	<!--single product-->
+	<div class="small-container single-product">
+		<div class="row">
+			<div class="col-2">
+				<img src="" width="100%" id="productImg" />
 
-        <div class="col-2">
-          <h1 id="productName">Product Name</h1>
-          <h4 id="productPrice">$0.00</h4>
-          <select id="productSize">
-            <option>Select Size</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>10</option>
-          </select>
-          <input type="number" value="1" />
-          <button class="btn" id="addToCartBtn">Add to Cart</button>
-          <h3>Product Details <i class="fa fa-indent"></i></h3>
-          <br />
-          <p id="productDescription">Product description goes here...</p>
-        </div>
-      </div>
-    </div>
+				<div class="small-img-row" id="smallImgRow"></div>
+			</div>
 
-    <!--footer-->
-    <div id="footer"></div>
+			<div class="col-2">
+				<h1 id="productName">Product Name</h1>
+				<h4 id="productPrice">$0.00</h4>
+				<select id="productSize">
+					<option>Select Size</option>
+					<option>6</option>
+					<option>7</option>
+					<option>8</option>
+					<option>9</option>
+					<option>10</option>
+				</select>
+				<input type="number" value="1" />
+				<button class="btn" id="addToCartBtn">Add to Cart</button>
+				<h3>Product Details <i class="fa fa-indent"></i></h3>
+				<br />
+				<p id="productDescription">Product description goes here...</p>
+			</div>
+		</div>
+	</div>
 
-    <!--load header and footer-->
-    <script>
-      async function loadContent() {
-        const header = await fetch("header.html").then((response) =>
-          response.text(),
-        );
-        document.getElementById("header").innerHTML = header;
+	<!--footer-->
+	<div id="footer"></div>
 
-        const footer = await fetch("footer.html").then((response) =>
-          response.text(),
-        );
-        document.getElementById("footer").innerHTML = footer;
-      }
+	<!--load header and footer-->
+	<script type="module">
+		import {initializeCart} from "./cart.js";
 
-      loadContent();
-    </script>
+		async function loadContent() {
+			const headerResponse = await fetch("header.html");
+			const headerHtml = await headerResponse.text();
+			document.getElementById("header").innerHTML = headerHtml;
 
-    <script>
-      var MenuItems = document.getElementById("MenuItems");
+			const footerResponse = await fetch("footer.html");
+			const footerHtml = await footerResponse.text();
+			document.getElementById("footer").innerHTML = footerHtml;
 
-      MenuItems.style.maxHeight = "0px";
-      function menutoggle() {
-        if (MenuItems.style.maxHeight == "0px") {
-          MenuItems.style.maxHeight = "200px";
-        } else {
-          MenuItems.style.maxHeight = "0px";
-        }
-      }
-    </script>
+			const menuToggle = document.getElementById("menu-toggle");
+			const nav = document.querySelector("nav");
 
-    <script type="module" src="products-details.js"></script>
-    <script type="module" src="cart.js"></script>
-  </body>
+			if (menuToggle && nav) {
+				menuToggle.addEventListener("click", () => {
+					if (nav.style.display === "block") {
+						nav.style.display = "none";
+					} else {
+						nav.style.display = "block";
+					}
+				});
+			}
+
+			initializeCart();
+		}
+
+		loadContent();
+	</script>
+
+	<script>
+		var MenuItems = document.getElementById("MenuItems");
+
+		MenuItems.style.maxHeight = "0px";
+		function menutoggle() {
+			if (MenuItems.style.maxHeight == "0px") {
+				MenuItems.style.maxHeight = "200px";
+			} else {
+				MenuItems.style.maxHeight = "0px";
+			}
+		}
+	</script>
+
+	<script type="module" src="cart-page.js"></script>
+	<script type="module" src="products-details.js"></script>
+</body>
+
 </html>

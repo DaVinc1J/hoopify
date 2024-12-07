@@ -13,12 +13,12 @@ export function renderProducts(productList, container) {
     const productHTML = `
       <div class="col-4">
 				<a href="${product.link}?id=${product.id}">
-          <img src="${product.image}" alt="${product.name}" />
-        </a>
-        <h4>${product.name}</h4>
-        <div class="rating">${stars}</div>
-        <p>$${product.price.toFixed(2)}</p>
-      </div>
+        	<img src="${product.image}" alt="${product.name}" />
+       	</a>
+       	<h4>${product.name}</h4>
+       	<div class="rating">${stars}</div>
+       	<p>$${product.price.toFixed(2)}</p>
+			</div>
     `;
     container.insertAdjacentHTML("beforeend", productHTML);
   });

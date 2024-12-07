@@ -33,7 +33,7 @@
               <td id="subtotal">$0.00</td>
             </tr>
             <tr>
-              <td>Affiliate Discount</td>
+              <td>Discount</td>
               <td id="affiliate">$0.00</td>
             </tr>
             <tr>
@@ -73,6 +73,19 @@
         const footerResponse = await fetch("footer.html");
         const footerHtml = await footerResponse.text();
         document.getElementById("footer").innerHTML = footerHtml;
+
+        const menuToggle = document.getElementById("menu-toggle");
+        const nav = document.querySelector("nav");
+
+        if (menuToggle && nav) {
+          menuToggle.addEventListener("click", () => {
+            if (nav.style.display === "block") {
+              nav.style.display = "none";
+            } else {
+              nav.style.display = "block";
+            }
+          });
+        }
 
         initializeCart();
       }

@@ -54,13 +54,42 @@
         const footerHtml = await footerResponse.text();
         document.getElementById("footer").innerHTML = footerHtml;
 
+        // Attach the event listener dynamically
+        const menuToggle = document.getElementById("menu-toggle");
+        const nav = document.querySelector("nav");
+
+        if (menuToggle && nav) {
+          menuToggle.addEventListener("click", () => {
+            if (nav.style.display === "block") {
+              nav.style.display = "none";
+            } else {
+              nav.style.display = "block";
+            }
+          });
+        }
+
+        // Initialize cart (if needed)
         initializeCart();
       }
 
       loadContent();
     </script>
 
+    <script>
+      var MenuItems = document.getElementById("MenuItems");
+
+      MenuItems.style.maxHeight = "0px";
+      function menutoggle() {
+        if (MenuItems.style.maxHeight == "0px") {
+          MenuItems.style.maxHeight = "200px";
+        } else {
+          MenuItems.style.maxHeight = "0px";
+        }
+      }
+    </script>
+
+    <script type="module" src="cart-page.js"></script>
+
     <script src="products.js" type="module"></script>
-    <script src="cart.js" type="module"></script>
   </body>
 </html>
