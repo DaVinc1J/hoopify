@@ -546,11 +546,18 @@ input:focus {
 table {
   width: 100%;
   border-collapse: collapse;
+  table-layout: fixed;
 }
 
 .cart-info {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.cart-info div {
+  max-width: 200px;
+  word-wrap: break-word;
 }
 
 th {
@@ -563,12 +570,14 @@ th {
 
 td {
   padding: 10px 5px;
+  vertical-align: middle;
 }
 
 td input {
   width: 40px;
   height: 30px;
   padding: 5px;
+  text-align: center;
 }
 
 td a {
@@ -581,17 +590,6 @@ td img {
   margin-right: 10px;
 }
 
-.total-price {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.total-price table {
-  border-top: 3px solid #ff523b;
-  width: 100%;
-  max-width: 400px;
-}
-
 td:last-child {
   text-align: right;
 }
@@ -600,12 +598,27 @@ th:last-child {
   text-align: right;
 }
 
-/* Cart Item Styles */
 .cart-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  padding: 20px 0;
+  position: relative;
+}
+
+.cart-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 5%;
+  width: 90%;
+  height: 2px;
+  background-color: #ddd;
+  border-radius: 2px;
+}
+
+.cart-item:first-child::before {
+  display: none;
 }
 
 .cart-info {
@@ -628,6 +641,86 @@ th:last-child {
 
 .subtotal {
   font-size: 18px;
+  width: 100px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.cart-info a.remove-btn {
+  color: red;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.cart-info a.remove-btn:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.total-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.total-price .left-side {
+  flex: 3;
+  margin-right: 20px;
+}
+
+.total-price .right-side {
+  flex: 1;
+  margin-left: 40px;
+}
+
+.total-price table {
+  border-top: 3px solid #ff523b;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.total-price td,
+.total-price th {
+  width: 50%;
+  padding: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.right-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+}
+
+.right-side h3 {
+  padding-bottom: 10px;
+  margin: 0;
+}
+
+.right-side input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.right-side button {
+  display: inline-block;
+  background: var(--base-item-colour);
+  color: white;
+  padding: 8px 30px;
+  margin: 10px 0px;
+  border-radius: 30px;
+  transition: background 0.5s;
+}
+
+.right-side button:hover {
+  background: var(--base-item-hover-colour);
 }
 
 /* Cart Count Badge */

@@ -19,7 +19,7 @@
   <body>
     <div id="header"></div>
 
-    <!------------------------------ Products------------------------------>
+    <!--products-->
     <div class="small-container">
       <div class="row row-2">
         <h2>All Products</h2>
@@ -31,21 +31,17 @@
         </select>
       </div>
 
-      <!-- Dynamic Products Section -->
-      <div class="row" id="all-products">
-        <!-- Products will be dynamically inserted here -->
-      </div>
+      <!--dynamic products-->
+      <div class="row" id="all-products"></div>
 
-      <!-- Pagination Buttons -->
-      <div class="page-btn" id="pagination">
-        <!-- Pagination buttons will be dynamically inserted -->
-      </div>
+      <!--pagination-->
+      <div class="page-btn" id="pagination"></div>
     </div>
 
-    <!----------------------------------footer------------------------------------->
+    <!--footer-->
     <div id="footer"></div>
 
-    <!--load header and footer-->
+    <!--load and update header and footer-->
     <script>
       async function loadContent() {
         const header = await fetch("header.html").then((response) =>
@@ -62,9 +58,7 @@
       loadContent();
     </script>
 
-    <!----------------------------------- JavaScript ----------------------------------------------->
     <script src="products.js" type="module"></script>
-
     <script src="cart.js" type="module"></script>
   </body>
 </html>

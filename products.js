@@ -6,13 +6,11 @@ const paginationContainer = document.getElementById("pagination");
 const allProductsContainer = document.getElementById("all-products");
 const sortDropdown = document.getElementById("sort-options");
 
-let sortedProducts = [...products]; // Create a copy to apply sorting
+let sortedProducts = [...products];
 
-// Get the current page number from the query string
 const queryParams = new URLSearchParams(window.location.search);
 const currentPage = parseInt(queryParams.get("page"), 10) || 1;
 
-// Function to render pagination buttons
 function renderPagination(totalProducts) {
 	const totalPages = Math.ceil(totalProducts / maxProductsPerPage);
 
@@ -26,7 +24,6 @@ function renderPagination(totalProducts) {
 	}
 }
 
-// Function to load products for the current page
 function loadPage(page, productsToLoad = sortedProducts) {
 	const start = (page - 1) * maxProductsPerPage;
 	const end = start + maxProductsPerPage;
@@ -37,7 +34,6 @@ function loadPage(page, productsToLoad = sortedProducts) {
 	renderPagination(productsToLoad.length);
 }
 
-// Function to sort products based on selected criteria
 function sortProducts(criteria) {
 	switch (criteria) {
 		case "price-asc":
@@ -50,20 +46,17 @@ function sortProducts(criteria) {
 			sortedProducts.sort((a, b) => b.rating - a.rating);
 			break;
 		case "popularity":
-			// Assuming products have a "popularity" field
 			sortedProducts.sort((a, b) => b.popularity - a.popularity);
 			break;
 		default:
-			sortedProducts = [...products]; // Reset to default order
+			sortedProducts = [...products];
 	}
 
-	loadPage(1); // Reload the first page after sorting
+	loadPage(1);
 }
 
-// Event listener for the sorting dropdown
 sortDropdown.addEventListener("change", (event) => {
 	sortProducts(event.target.value);
 });
 
-// Load the current page initially
 loadPage(currentPage);

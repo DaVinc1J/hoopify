@@ -17,60 +17,48 @@
   </head>
 
   <body>
-    <!-- Navbar -->
+    <!--header-->
     <div id="header"></div>
 
-    <!-- Cart Items Details -->
+    <!--cart items, table and checkout button-->
     <div class="small-container cart-page">
       <h2>Your Cart</h2>
-      <div id="cartItems">
-        <div class="cart-info">
-          <img src="${item.img}" alt="${item.name}" />
-          <div>
-            <p>${item.name}</p>
-            <p>Size: ${item.size}</p>
-            <small>Price: $${item.price.toFixed(2)}</small><br />
-            <a
-              href="#"
-              class="remove-btn"
-              data-id="${item.id}"
-              data-size="${item.size}"
-              >Remove</a
-            >
-          </div>
-        </div>
-        <div class="quantity">
-          <input
-            type="number"
-            min="1"
-            value="${item.quantity}"
-            data-id="${item.id}"
-            data-size="${item.size}"
-          />
-        </div>
-        <div class="subtotal">$${itemTotal.toFixed(2)}</div>
-      </div>
+      <div id="cartItems"></div>
 
       <div class="total-price">
-        <table>
-          <tr>
-            <td>Subtotal</td>
-            <td id="subtotal">$0.00</td>
-          </tr>
-          <tr>
-            <td>Affiliate Discount</td>
-            <td id="affiliate">$0.00</td>
-          </tr>
-          <tr>
-            <td>Total</td>
-            <td id="total">$0.00</td>
-          </tr>
-        </table>
+        <div class="left-side">
+          <table>
+            <tr>
+              <td>Subtotal</td>
+              <td id="subtotal">$0.00</td>
+            </tr>
+            <tr>
+              <td>Affiliate Discount</td>
+              <td id="affiliate">$0.00</td>
+            </tr>
+            <tr>
+              <td>Total</td>
+              <td id="total">$0.00</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="right-side">
+          <h3>Affiliate Link</h3>
+          <input
+            type="text"
+            id="affiliate-link"
+            placeholder="Enter affiliate link"
+          />
+          <button id="submit-link">Submit</button>
+        </div>
+      </div>
+      <div class="button-container">
         <button class="btn" id="checkoutBtn">Proceed to Checkout</button>
       </div>
     </div>
 
-    <!-- Footer -->
+    <!--footer-->
     <div id="footer"></div>
 
     <!--load header and footer-->
@@ -90,8 +78,6 @@
       loadContent();
     </script>
 
-    <!-- Include the JavaScript files -->
-    <script type="module" src="cart-page.js"></script>
     <script>
       var MenuItems = document.getElementById("MenuItems");
 
@@ -104,5 +90,8 @@
         }
       }
     </script>
+
+    <script type="module" src="cart-page.js"></script>
+    <script type="module" src="cart.js"></script>
   </body>
 </html>
