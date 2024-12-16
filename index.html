@@ -1,65 +1,69 @@
 <!doctype html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hoopify - Home</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
 
-<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Hoopify - Home</title>
-	<link rel="stylesheet" href="style.css" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" />
-	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
-		rel="stylesheet" />
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-</head>
+  <body>
+    <!--header-->
+    <div id="header"></div>
 
-<body>
-	<!--header-->
-	<div id="header"></div>
+    <!--featured products-->
+    <div class="small-container">
+      <h2 class="title">Featured Products</h2>
+      <div class="row featured-products"></div>
 
-	<!--featured products-->
-	<div class="small-container">
-		<h2 class="title">Featured Products</h2>
-		<div class="row featured-products"></div>
+      <!--latest products-->
+      <h2 class="title">Latest Products</h2>
+      <div class="row latest-products"></div>
+    </div>
 
-		<!--latest products-->
-		<h2 class="title">Latest Products</h2>
-		<div class="row latest-products"></div>
-	</div>
+    <!--offer-->
+    <div class="offer">
+      <div class="small-container">
+        <div class="row">
+          <div class="col-2">
+            <img src="images/image1.png" class="offer-img" />
+          </div>
+          <div class="col-2">
+            <p>Exclusively Available on Hoopify</p>
+            <h1>Basketball Shoes</h1>
+            <small>
+              Get the best basketball shoes from top brands at unbeatable
+              prices!
+            </small>
+            <br />
+            <a href="products.html" class="btn">Shop Now &#8594;</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
-	<!--offer-->
-	<div class="offer">
-		<div class="small-container">
-			<div class="row">
-				<div class="col-2">
-					<img src="images/image1.png" class="offer-img" />
-				</div>
-				<div class="col-2">
-					<p>Exclusively Available on Hoopify</p>
-					<h1>Basketball Shoes</h1>
-					<small>
-						Get the best basketball shoes from top brands at unbeatable
-						prices!
-					</small>
-					<br />
-					<a href="products.html" class="btn">Shop Now &#8594;</a>
-				</div>
-			</div>
-		</div>
-	</div>
+    <!--footer-->
+    <div id="footer"></div>
 
-	<!--footer-->
-	<div id="footer"></div>
+    <!--scripts-->
+    <script type="module">
+      import { initializeCart } from "./cart.js";
 
-	<!--scripts-->
-	<script type="module">
-		import {initializeCart} from "./cart.js";
+      async function loadContent() {
+        const headerResponse = await fetch("header.html");
+        const headerHtml = await headerResponse.text();
+        document.getElementById("header").innerHTML = headerHtml;
 
-		async function loadContent() {
-			const headerResponse = await fetch("header.html");
-			const headerHtml = await headerResponse.text();
-			document.getElementById("header").innerHTML = headerHtml;
-
-			const customContent = `
+        const customContent = `
           <div class="row">
             <div class="col-2">
               <h1>High Quality <br /> Low Price</h1>
@@ -71,34 +75,33 @@
             </div>
           </div>
         `;
-			document
-				.querySelector(".header .container")
-				.insertAdjacentHTML("beforeend", customContent);
+        document
+          .querySelector(".header .container")
+          .insertAdjacentHTML("beforeend", customContent);
 
-			const footerResponse = await fetch("footer.html");
-			const footerHtml = await footerResponse.text();
-			document.getElementById("footer").innerHTML = footerHtml;
+        const footerResponse = await fetch("footer.html");
+        const footerHtml = await footerResponse.text();
+        document.getElementById("footer").innerHTML = footerHtml;
 
-			const menuToggle = document.getElementById("menu-toggle");
-			const nav = document.querySelector("nav");
+        const menuToggle = document.getElementById("menu-toggle");
+        const nav = document.querySelector("nav");
 
-			if (menuToggle && nav) {
-				menuToggle.addEventListener("click", () => {
-					if (nav.style.display === "block") {
-						nav.style.display = "none";
-					} else {
-						nav.style.display = "block";
-					}
-				});
-			}
+        if (menuToggle && nav) {
+          menuToggle.addEventListener("click", () => {
+            if (nav.style.display === "block") {
+              nav.style.display = "none";
+            } else {
+              nav.style.display = "block";
+            }
+          });
+        }
 
-			initializeCart();
-		}
+        initializeCart();
+      }
 
-		loadContent();
-	</script>
+      loadContent();
+    </script>
 
-	<script src="index.js" type="module"></script>
-</body>
-
+    <script src="index.js" type="module"></script>
+  </body>
 </html>
